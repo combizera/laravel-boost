@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\HasAutoOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MenuItem extends Model
 {
     /** @use HasFactory<\Database\Factories\MenuItemFactory> */
     use HasFactory;
+    use HasAutoOrder;
 
     protected $fillable = [
         'menu_id',
@@ -24,6 +25,16 @@ class MenuItem extends Model
         'is_active' => 'boolean',
         'order' => 'integer',
     ];
+
+    /**
+     * The column name used for ordering
+     */
+    protected string $orderColumn = 'order';
+
+    /**
+     * The column name used for grouping orders
+     */
+    protected string $orderGroupColumn = 'menu_id';
 
     public function menu(): BelongsTo
     {
