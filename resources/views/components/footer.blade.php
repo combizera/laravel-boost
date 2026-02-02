@@ -1,24 +1,47 @@
-<footer class="w-full lg:max-w-4xl max-w-[335px] text-sm mt-6">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-4 py-6 border-t border-[#e3e3e0] dark:border-[#3E3E3A]">
-        <div class="text-[#706f6c] dark:text-[#A1A09A] text-center lg:text-left">
-            <p>&copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. All rights reserved.</p>
-        </div>
+<footer class="pluma-section pt-0">
+    <div class="pluma-container">
+        <div class="flex flex-col gap-6 border-t border-gray-200/70 py-8 md:flex-row md:items-center md:justify-between" data-testid="footer">
+            <!-- Copyright -->
+            <p class="text-center text-sm text-gray-500 md:text-left" data-testid="text-footer">
+                © {{ date('Y') }} {{ config('app.name', 'Pluma Wine') }}. All rights reserved.
+            </p>
 
-        @if($footerMenu && $footerMenu->activeItems->isNotEmpty())
-            <nav class="flex items-center gap-4">
-                @foreach($footerMenu->activeItems as $item)
+            <!-- Footer Menu -->
+            @if($footerMenu && $footerMenu->activeItems->isNotEmpty())
+                <div class="flex flex-wrap items-center justify-center gap-3 md:justify-end" data-testid="footer-actions">
+                    @foreach($footerMenu->activeItems as $item)
+                        <a
+                            href="{{ $item->url }}"
+                            @if(str_starts_with($item->url, 'http'))
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            @endif
+                            class="h-10 rounded-lg px-4 text-[rgb(var(--accent))] transition-colors hover:bg-[rgba(59,155,143,0.08)]"
+                            data-testid="button-footer-{{ Str::slug($item->label) }}"
+                        >
+                            {{ $item->label }}
+                        </a>
+                    @endforeach
+                </div>
+            @else
+                <!-- Default links when no menu is configured -->
+                <div class="flex flex-wrap items-center justify-center gap-3 md:justify-end" data-testid="footer-actions">
                     <a
-                        href="{{ $item->url }}"
-                        @if(str_starts_with($item->url, 'http'))
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        @endif
-                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border @if($loop->last) border-[#19140035] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:hover:border-[#62605b] @else border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] @endif rounded-sm text-sm leading-normal"
+                        href="#"
+                        class="h-10 rounded-lg px-4 text-[rgb(var(--accent))] transition-colors hover:bg-[rgba(59,155,143,0.08)]"
+                        data-testid="button-footer-privacy"
                     >
-                        {{ $item->label }}
+                        Privacy
                     </a>
-                @endforeach
-            </nav>
-        @endif
+                    <a
+                        href="#"
+                        class="h-10 rounded-lg px-4 text-[rgb(var(--accent))] transition-colors hover:bg-[rgba(59,155,143,0.08)]"
+                        data-testid="button-footer-contact"
+                    >
+                        Contact
+                    </a>
+                </div>
+            @endif
+        </div>
     </div>
 </footer>

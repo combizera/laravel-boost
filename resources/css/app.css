@@ -8,4 +8,92 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Pluma Wine Colors */
+    --color-primary: 28 63 58;
+    --color-secondary: 245 243 235;
+    --color-accent: 59 155 143;
+    --color-card: 255 255 255;
+    --color-card-border: 230 230 230;
+
+    /* Shadows */
+    --shadow-colored: 0 4px 12px rgba(59, 155, 143, 0.15);
+    --shadow-medium: 0 8px 24px rgba(59, 155, 143, 0.2);
+}
+
+@layer utilities {
+    /* Container */
+    .pluma-container {
+        width: 100%;
+        max-width: 1280px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    /* Section Spacing */
+    .pluma-section {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+
+    @media (min-width: 768px) {
+        .pluma-section {
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+        }
+    }
+
+    /* Card */
+    .pluma-card {
+        border-radius: 1rem;
+        transition: all 200ms ease-out;
+    }
+
+    .pluma-card-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Noise Texture */
+    .pluma-noise::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        border-radius: inherit;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.5s ease-out forwards;
+    }
+
+    .animate-delay-100 {
+        animation-delay: 0.05s;
+        opacity: 0;
+    }
+
+    .animate-delay-200 {
+        animation-delay: 0.1s;
+        opacity: 0;
+    }
+
+    .animate-delay-300 {
+        animation-delay: 0.15s;
+        opacity: 0;
+    }
 }
