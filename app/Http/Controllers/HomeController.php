@@ -9,9 +9,11 @@ class HomeController extends Controller
     public function index()
     {
         $heroSettings = Setting::getByGroup('hero');
+        $featuresSettings = Setting::getByGroup('features');
 
         return view('welcome', [
             'heroSettings' => $heroSettings,
+            'featuresSettings' => $featuresSettings,
         ]);
     }
 }

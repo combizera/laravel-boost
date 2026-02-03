@@ -18,7 +18,7 @@ class MenuResource extends Resource
 {
     protected static ?string $model = Menu::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-s-rectangle-stack';
 
     protected static ?string $navigationLabel = 'Menus';
 
@@ -28,7 +28,7 @@ class MenuResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Content Management';
+        return 'Conteúdo';
     }
 
     public static function form(Schema $schema): Schema
