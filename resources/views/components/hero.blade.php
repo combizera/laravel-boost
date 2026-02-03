@@ -3,7 +3,7 @@
 <section class="pluma-section">
     <div class="pluma-container">
         <div class="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
-            <!-- Left Column: Content -->
+            {{-- LEFT --}}
             <div class="lg:col-span-7">
                 @if($heroSettings['hero.subtitle'] ?? null)
                     <div class="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-gray-200 bg-[rgb(var(--secondary))] px-4 py-2" data-testid="badge-hero">
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <!-- Right Column: Image -->
+            {{-- RIGHT --}}
             <div class="lg:col-span-5">
                 <div class="animate-fade-in-up animate-delay-200 relative" data-testid="panel-hero-visual">
                     <div class="absolute -inset-6 rounded-[28px] bg-[radial-gradient(circle_at_20%_10%,rgba(190,173,128,0.15),transparent_45%),radial-gradient(circle_at_90%_40%,rgba(190,173,128,0.12),transparent_55%),radial-gradient(circle_at_30%_90%,rgba(250,248,242,0.65),transparent_55%)]" data-testid="bg-hero-gradient"></div>

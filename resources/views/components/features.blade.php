@@ -3,7 +3,7 @@
 <section id="notes" class="pluma-section bg-[rgb(var(--secondary))]">
     <div class="pluma-container">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
-            <!-- Left Column: Title & Description -->
+            {{-- LEFT --}}
             <div class="lg:col-span-5">
                 <p class="animate-fade-in-up text-xs font-medium uppercase tracking-[0.02em] text-gray-500" data-testid="text-notes-kicker">
                     {{ $features['features.kicker'] ?? 'Why Choose Us' }}
@@ -16,7 +16,7 @@
                 </p>
             </div>
 
-            <!-- Right Column: Feature Cards -->
+            {{-- RIGHT --}}
             <div class="lg:col-span-7">
                 <div class="grid gap-4 md:grid-cols-2" data-testid="grid-features">
                     @php
